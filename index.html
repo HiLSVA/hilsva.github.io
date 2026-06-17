@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="HiLSVA: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization">
+  <meta property="og:title" content="HiLSVA: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization"/>
+  <meta property="og:description" content="A human-in-the-loop agentic system that supports mixed-initiative SciVis workflows with explicit human oversight, stepwise provenance tracking, and learn-at-test-time adaptation from user feedback."/>
+  <meta property="og:url" content="https://hilsva.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="https://hilsva.github.io/static/images/teaser.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="HiLSVA: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization">
+  <meta name="twitter:description" content="A human-in-the-loop agentic system that supports mixed-initiative SciVis workflows with explicit human oversight, stepwise provenance tracking, and learn-at-test-time adaptation from user feedback.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="https://hilsva.github.io/static/images/teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="scientific visualization, SciVis, large language model, LLM, agents, human-in-the-loop, mixed-initiative, human-agent collaboration, human-centered computing, ParaView, agentic system, provenance">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>HiLSVA: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico?v=2">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Home icon -->
+<div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+  <a href="https://kuangshiai.github.io" target="_blank"
+     style="display: inline-block; padding: 10px; background-color: rgba(0,0,0,0.7); border-radius: 50%;
+            color: white; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;"
+     onmouseover="this.style.backgroundColor='rgba(0,0,0,0.9)'; this.style.transform='scale(1.1)'"
+     onmouseout="this.style.backgroundColor='rgba(0,0,0,0.7)'; this.style.transform='scale(1)'">
+    <i class="fas fa-home" style="font-size: 18px;"></i>
+  </a>
+</div>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">HiLSVA: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://kuangshiai.github.io/" target="_blank">Kuangshi Ai</a>,</span>
+                <span class="author-block">
+                  Patrick Phuoc Do,</span>
+                  <span class="author-block">
+                    <a href="https://sites.nd.edu/chaoli-wang/" target="_blank">Chaoli Wang</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">University of Notre Dame</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+
+                    <!-- Supplementary / User Study PDF link -->
+                    <span class="link-block">
+                      <a href="static/pdfs/user_study_doc.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>User Study Doc</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/KuangshiAi/HiLSVA" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                  <span class="link-block">
+                    <a href="https://www.youtube.com/watch?v=vb8Q34SnawM" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-video"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/overview.jpg" alt="HiLSVA System Overview" style="width: 100%; height: auto; max-width: 1600px; display: block; margin: 0 auto;"/>
+      <h2 class="subtitle has-text-centered">
+        HiLSVA reframes agentic scientific visualization as a collaborative process that <i>augments</i>, rather than replaces, human analytical reasoning &mdash; combining mixed-initiative interaction with robust agentic infrastructure, explicit human oversight, stepwise provenance tracking, and learn-at-test-time adaptation from user feedback.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large language model (LLM) agents enable natural language interaction for scientific visualization (SciVis). Still, prior systems have essentially prioritized autonomy over human analytical control, thereby limiting transparency and human oversight. We present HiLSVA, a human-in-the-loop agentic system that supports mixed-initiative SciVis workflows. HiLSVA integrates a plan-first multi-agent architecture with explicit human oversight, stepwise provenance tracking, and learn-at-test-time adaptation from user feedback.
+          </p>
+          <p>
+            The system supports fluid handoff between humans and agents through both natural language and direct manipulation of visualizations, while sandboxed execution ensures safe, reproducible workflows. In doing so, HiLSVA reframes agentic SciVis as a collaborative process that augments, rather than replaces, human analytical reasoning. We evaluate HiLSVA through representative case studies and a controlled user study with twelve participants of varying expertise across multiple autonomy settings.
+          </p>
+          <p>
+            Results show that mixed-initiative interaction improves task completion, user control, and workflow transparency across different levels of user expertise, while revealing a tradeoff between execution efficiency and human oversight. These findings highlight the importance of human-centered design in agentic SciVis and guide the development of future collaborative visualization systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- System Overview / Pipeline section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">System Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              HiLSVA adopts a multi-agent architecture centered around a lead <strong>orchestrator</strong> that coordinates a set of specialized sub-agents, and is designed around five pillars that keep the human in control throughout the SciVis workflow:
+            </p>
+            <div class="columns">
+              <div class="column">
+                <p><strong>(a) Mixed-initiative agentic architecture:</strong> An orchestrator interprets user intent, constructs explicit stepwise plans, and coordinates specialized agents with bidirectional human&ndash;agent interaction.</p>
+                <p><strong>(b) Specialized visualization agents:</strong> A <em>ParaView agent</em> (direct control via MCP), a <em>code agent</em> (SciVis Python generation with RAG and iterative error correction), a <em>file surfer</em>, and a <em>web surfer</em> execute SciVis actions and report outcomes back to the orchestrator.</p>
+                <p><strong>(c) Stepwise control &amp; provenance tracking:</strong> Workflows are represented as editable steps that record planned and executed actions, software states, and visualization outputs for undo, branching, and reuse.</p>
+              </div>
+              <div class="column">
+                <p><strong>(d) Sandboxed execution environments:</strong> Tool interactions run in isolated Docker containers, enabling safe, parallel execution across sessions.</p>
+                <p><strong>(e) Learn-at-test-time (LTT) with human feedback:</strong> A self-improving agent reflects on execution outcomes, assesses uncertainty, queries users when needed, and updates a knowledge repository during inference.</p>
+                <p>
+                  The current implementation runs <strong>ParaView</strong> as the visualization engine, uniquely supporting multiple interaction modalities on the same instance &mdash; MCP tool calls, generated Python scripts, and direct GUI manipulation. The architecture itself is backend-agnostic.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="static/images/overview.jpg" alt="HiLSVA System Overview" style="width: 100%; max-width: 1400px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+            <p class="subtitle is-6" style="margin-top: 1rem; color: #666;">
+              Overview of HiLSVA. An orchestrator interprets user intent, builds explicit stepwise plans, and coordinates specialized agents (ParaView, code, file surfer, web surfer) with bidirectional human&ndash;agent interaction, provenance-aware workflows, sandboxed execution, and a self-improving agent that adapts during inference.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End system overview section -->
+
+
+<!-- Key Capabilities section -->
+<section class="section hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Key Mixed-Initiative Capabilities</h2>
+          <div class="content has-text-justified">
+            <p>
+              HiLSVA introduces fine-grained mechanisms for shared initiative between users and agents while preserving human authority throughout the SciVis workflow. The system supports six core capabilities:
+            </p>
+            <div class="columns">
+              <div class="column">
+                <p><strong>(a) Joint planning:</strong> Collaboratively create and approve step-by-step plans; users can reorder, add, or remove steps, or modify step instructions before execution.</p>
+                <p><strong>(b) Action guards:</strong> Require explicit review and approval for critical or potentially irreversible actions, such as executing generated code or sensitive tool calls.</p>
+                <p><strong>(c) Stepwise rollback:</strong> Revert to any previous workflow step to inspect, branch, or revise the visualization, with all software states faithfully restored.</p>
+              </div>
+              <div class="column">
+                <p><strong>(d) Interactive execution:</strong> Interrupt and guide task execution using the visualization engine GUI directly or through chat, with fluid handoff between manual and automated control.</p>
+                <p><strong>(e) Autonomy control:</strong> Adjust the level of system autonomy and user involvement during task execution.</p>
+                <p><strong>(f) Learn-at-test-time (LTT):</strong> Adapt agent behavior during execution through retrieval, self-reflection, and human feedback stored as reusable knowledge.</p>
+              </div>
+            </div>
+          </div>
+          <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="static/images/example-features.jpg" alt="HiLSVA Key Capabilities" style="width: 100%; max-width: 1500px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+            <p class="subtitle is-6" style="margin-top: 1rem; color: #666;">
+              Key mixed-initiative capabilities of HiLSVA: (a) collaborative planning, (b) guarded execution, (c) stepwise rollback, (d) interactive user steering, (e) autonomy control, and (f) LTT adaptation through retrieval, reflection, and human feedback.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End key capabilities section -->
+
+
+<!-- Interface section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Interactive Interface</h2>
+          <div class="content has-text-justified">
+            <p>
+              HiLSVA provides an interface that tightly couples planning, execution, and visualization. A <strong>mixed-initiative chat widget</strong> serves as the primary channel for natural language interaction, where users specify tasks, inspect and edit execution plans, approve or reject actions, review generated code, and respond to agent self-reflection. A <strong>workflow monitor panel</strong> exposes the current execution state as a stepwise process, supporting undo and return to prior states using recorded provenance. A <strong>real-time visualization engine and web browser</strong> let users directly intervene by taking control of the GUI at any point and seamlessly resume automated execution. A <strong>plan gallery</strong> and <strong>knowledge base</strong> accumulate validated workflows and learned experience to support provenance-aware reuse and LTT adaptation.
+            </p>
+          </div>
+          <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="static/images/interface.jpg" alt="HiLSVA Interface" style="width: 100%; max-width: 1400px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+            <p class="subtitle is-6" style="margin-top: 1rem; color: #666;">
+              The HiLSVA interface: (a) mixed-initiative chat widget for planning, refinement, and uncertainty queries; (b) workflow monitor panel showing execution progress and clickable state transitions; (c) real-time visualization engine and web browser where actions directly operate on the ParaView environment; and (d) plan gallery and knowledge base for reuse and adaptation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End interface section -->
+
+
+<!-- Case Studies section -->
+<section class="section hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Case Studies</h2>
+          <div class="content has-text-justified">
+            <p>
+              We present five case studies of varying complexity that span three canonical SciVis stages &mdash; <em>data exploration</em>, <em>data visualization</em>, and <em>scientific insight</em>. Each example illustrates how mixed-initiative interaction, provenance-aware reuse, and learned knowledge support real SciVis workflows. The accompanying videos show the recorded interactions for each task.
+            </p>
+          </div>
+
+          <!-- Case studies grid -->
+          <div class="columns is-multiline" style="margin-top: 2rem;">
+
+            <!-- Foot Case Study -->
+            <div class="column is-half">
+              <div class="box" style="height: 100%;">
+                <h4 class="title is-5 has-text-centered">Foot &mdash; Basic Action Task</h4>
+                <div class="has-text-centered" style="margin-bottom: 1rem;">
+                  <video controls muted playsinline preload="none" poster="static/images/foot.jpg" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px;">
+                    <source src="static/videos/foot.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    A CT scan of a human foot (125&times;255&times;183). HiLSVA generates an initial isosurface visualization that separates bone from skin and soft tissue, retrieves a labeled anatomy reference from the web, and then supports user-driven refinement through direct GUI interaction to reveal the metatarsals and phalanges &mdash; demonstrating data exploration through iterative refinement and contextual information retrieval.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hurricane Case Study -->
+            <div class="column is-half">
+              <div class="box" style="height: 100%;">
+                <h4 class="title is-5 has-text-centered">Hurricane &mdash; Basic Action Task</h4>
+                <div class="has-text-centered" style="margin-bottom: 1rem;">
+                  <video controls muted playsinline preload="none" poster="static/images/isabel.jpg" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px;">
+                    <source src="static/videos/isabel.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    An atmospheric simulation of Hurricane Isabel (500&times;500&times;100). HiLSVA constructs a horizontal slice of the temperature field at <em>z</em>&nbsp;=&nbsp;49.5 with the Color to Warm colormap, analyzes the value distribution via a histogram, and overlays contour lines from linearly sampled values to better reveal the temperature structure and gradients of the storm.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tornado Case Study -->
+            <div class="column is-half">
+              <div class="box" style="height: 100%;">
+                <h4 class="title is-5 has-text-centered">Tornado &mdash; Visualization Workflow</h4>
+                <div class="has-text-centered" style="margin-bottom: 1rem;">
+                  <video controls muted playsinline preload="none" poster="static/images/tornado.jpg" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px;">
+                    <source src="static/videos/tornado.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    A simulated tornado vector field (64&times;64&times;64). For uncertain seeding parameters, HiLSVA runs three Stream Tracer trials with point-cloud seeding, lets the user roll back to the preferred trial via the workflow monitor, then uses knowledge-guided glyph visualization &mdash; arrows oriented by the velocity vector and scaled by magnitude &mdash; followed by a self-reflection that suggests stream tubes for clarity.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Combustion Case Study -->
+            <div class="column is-half">
+              <div class="box" style="height: 100%;">
+                <h4 class="title is-5 has-text-centered">Combustion &mdash; Visualization Workflow</h4>
+                <div class="has-text-centered" style="margin-bottom: 1rem;">
+                  <video controls muted playsinline preload="none" poster="static/images/combustion.jpg" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px;">
+                    <source src="static/videos/combustion.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    A multivariate, time-varying turbulent reacting flow (240&times;360&times;60, 33 timesteps). The file surfer identifies the number of timesteps, then HiLSVA volume-renders the time-varying <code>Y_OH</code> field &mdash; reusing a learned colormap configuration from the knowledge base &mdash; and exports an animation, before extending the analysis to an isosurface animation of the <code>mixfrac</code> field, highlighting iterative refinement on multivariate time-varying data.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Half-cylinder Case Study -->
+            <div class="column is-half is-offset-one-quarter">
+              <div class="box" style="height: 100%;">
+                <h4 class="title is-5 has-text-centered">Half-cylinder &mdash; Scientific Analysis</h4>
+                <div class="has-text-centered" style="margin-bottom: 1rem;">
+                  <video controls muted playsinline preload="none" poster="static/images/half-cylinder.jpg" style="width: 100%; max-width: 480px; height: auto; border-radius: 8px;">
+                    <source src="static/videos/half-cylinder.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    Incompressible 3D flow around a half-cylinder (<em>Re</em>&nbsp;=&nbsp;640, 640&times;240&times;80). Starting from a glyph-based visualization of the vector field, HiLSVA computes derived vortex-identification fields &mdash; the Q-criterion and &lambda;<sub>2</sub> &mdash; to reveal coherent vortex structures, saves the successful workflow as reusable knowledge, and supports extending the analysis to additional Reynolds numbers. This analysis-driven exploration exemplifies human-guided scientific discovery.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End case studies section -->
+
+
+<!-- User Study section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">User Study</h2>
+          <div class="content has-text-justified">
+            <p>
+              We conducted a controlled user study with <strong>12 participants</strong> across three expertise levels &mdash; three SciVis experts, four domain scientists with limited visualization-tool experience, and five novices with neither domain nor visualization expertise. Each participant used HiLSVA across three autonomy modes (full-autonomous, half-autonomous, and mixed-initiative with LTT) on four visualization tasks spanning basic operations and more complex workflow construction.
+            </p>
+
+            <h3 class="title is-4">Key Findings</h3>
+            <ul>
+              <li><strong>Expertise-independent success:</strong> All participants completed the tasks, and accuracy on domain-specific interpretation questions averaged 11.75 out of 12. HiLSVA enabled non-experts to achieve expert-comparable performance, with no data hallucinations (fabricated values or non-existent fields) observed in the logged sessions.</li>
+              <li><strong>Efficiency&ndash;oversight tradeoff:</strong> Execution time was lowest in full-autonomous mode and highest in mixed-initiative mode. Rather than a reliable speed difference, this reflects a tradeoff in which greater user involvement incurs additional interaction time while enabling verification and intervention.</li>
+              <li><strong>No single mode fits all:</strong> Given a free choice on the final task, seven participants selected full-autonomous mode, two half-autonomous, and three mixed-initiative &mdash; many preferred more automation once they trusted the system, while a notable subset still valued greater human control.</li>
+              <li><strong>Strong usability and transparency:</strong> Post-study questionnaire ratings averaged 4.66 / 5 across all questions, with particularly high scores for the ability to revisit previous steps, the usefulness of stepwise provenance, and clarity of system feedback.</li>
+            </ul>
+          </div>
+
+          <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="static/images/survey_responses.png" alt="User Study Survey Responses" style="width: 100%; max-width: 1200px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+            <p class="subtitle is-6" style="margin-top: 1rem; color: #666;">
+              Survey responses to 14 post-study questions, along with mean scores (on a 1&ndash;5 scale) and standard deviations.
+            </p>
+          </div>
+
+          <div class="content has-text-justified" style="margin-top: 2rem;">
+            <p>
+              Overall, the study demonstrates that HiLSVA enables users at all levels of expertise, including novices, to complete non-trivial SciVis tasks, while mixed-initiative interaction provides a flexible balance between efficiency and control. Full study materials and the detailed protocol are available in the
+              <a href="static/pdfs/user_study_doc.pdf" target="_blank">User Study Document</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End user study section -->
+
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">System Demonstration</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+
+          <div class="publication-video">
+            <!-- Youtube embed code here -->
+            <iframe src="https://www.youtube.com/embed/vb8Q34SnawM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{ai2026hilsva,
+  author={Ai, Kuangshi and Do, Patrick Phuoc and Wang, Chaoli},
+  title={{HiLSVA}: Design and Evaluation of a Human-in-the-Loop Agentic System for Scientific Visualization},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+           This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
